@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     //Default olarak karaktere bir hız verildi.
     float speed = 5.0f;
     Rigidbody rb;
-    float force = 40f;
+    
 
     void Start()
     {
@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour
 
    
     void Update()
-    {
-        
+    {   
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
@@ -38,11 +37,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0, 1, 0);
-        }
-        // if(Input.GetKeyDown(KeyCode.Space)) {
-        //     rb.AddForce(Vector3.up * force, ForceMode.Impulse);
-        // }
+        } 
     }  
- 
+
+    private void OnCollisionStay(Collision other) {
+        if(other.gameObject.tag == "Ball"){
+    
+            if(Input.GetKey(KeyCode.Space)){
+                //GameObject.Find("Ball").transform.Translate();
+            }    
+        
+        
+        }
+        
+    }
+
+
 }
 
