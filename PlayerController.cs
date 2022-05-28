@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     float speed = 5.0f;
-    float ballSpeed = 5.0f;
+    float ballSpeed = 6.5f;
     Rigidbody ballRigidbody;
     Transform ballTransform;
  
