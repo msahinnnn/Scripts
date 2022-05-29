@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Text timeText;
+    int timeMinutes = 79;
+    int timeSeconds = 50;
     void Start()
     {
-        
+        //StartCoroutine(GameTimer());
+        InvokeRepeating("GameTimer", 0f, 1f);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -20,5 +24,21 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(int sceneId){
         SceneManager.LoadScene(sceneId);
     }
+
+    public void GameTimer(){
+        if(timeSeconds == 59){
+            timeMinutes++;
+            timeSeconds = 00;
+        }
+        timeSeconds++;
+        Debug.Log(timeMinutes + " - " + timeSeconds);
+
+        if(timeMinutes == 120 ){
+            Debug.Log("Game Over");
+            CancelInvoke("GameTimer");
+            ChangeScene(2);           
+        }
+    }
+
 
 }
