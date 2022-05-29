@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeText;
     //public TextMeshProUGUI ballText;
     public TextMeshProUGUI ScoreText;
+    //public TextMeshProUGUI FinalScoreText;
+
     int timeMinutes = 79;
     int timeSeconds = 50;
     // public bool goalTriger;
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour
         // Invoke("BallState", 0f);
         int score = GameObject.Find("Ball").GetComponent<BallController>().myScore;
         ScoreText.text = "RAKİP 2 | BEN " + score.ToString();
+        //FinalScoreText.text = score.ToString() + " | 2";
+
         
     }
 
